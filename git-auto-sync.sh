@@ -5,6 +5,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$SCRIPT_DIR" || exit
 
 while inotifywait -r -e modify,close_write,move,create .; do
+    sleep 5
     # Stage only changed or new files
     git add -u
     git add .
